@@ -20,6 +20,9 @@ jobs:
         run: |
           python get_headlines.py
 
+      - name: Let Github know who you are
+          git config --global user.name $GITHUB_ACTOR
+  
       - name: Add file to staging area
         run: |
           git add headlines.json
