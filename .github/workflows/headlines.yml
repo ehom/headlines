@@ -13,10 +13,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
-      - name: Get environment variables
+        
+      - name: Set environment variables
         run: |
-          echo "NEWS_API_ORG_API_KEY=${{ secrets.NEWS_API_ORG_API_KEY }}"
+          export NEWS_API_ORG_KEY=${{ secrets.NEWS_API_ORG_API_KEY }}
 
       - name: Fetch headlines
         run: |
