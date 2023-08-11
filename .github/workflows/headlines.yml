@@ -26,6 +26,7 @@ jobs:
   
       - name: Add file to staging area
         run: |
+          git pull
           git checkout data
           git add headlines.json
 
