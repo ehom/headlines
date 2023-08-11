@@ -23,7 +23,8 @@ jobs:
       - name: Let Github know who you are
         run: |
           git config --global user.name $GITHUB_ACTOR
-  
+          git config --global user.email "ehom@users.noreply.github.com"
+
       - name: Add file to staging area
         run: |
           git pull
