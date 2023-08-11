@@ -1,0 +1,31 @@
+name: Fetch headlines
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+
+jobs:
+  fetch-headlines:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Get environment variables
+        run: |
+          echo "NEWS_API_ORG_API_KEY=${{ secrets.NEWS_API_ORG_API_KEY }}"
+
+      - name: Fetch headlines
+        run: |
+          python get_headlines.py
+
+      - name: Write headlines to file
+        run: |
+          echo "Writing headlines to file" > headlines.json
+          cat headlines.json
+
+      - name: Check in headlines
+        uses: actions/upload-artifact@v2
+        with:
+          name: headlines.json
+          path: headlines.json
