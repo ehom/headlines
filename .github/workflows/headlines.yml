@@ -16,7 +16,7 @@ jobs:
         
       - name: Set environment variables
         run: |
-          NEWS_API_ORG_API_KEY: ${{ secrets.NEWS_API_ORG_API_KEY }}
+          export NEWS_API_ORG_API_KEY=${{ secrets.NEWS_API_ORG_API_KEY }}
 
       - name: Fetch headlines
         run: |
