@@ -1,6 +1,7 @@
 import json
 import requests
 import os
+import datetime
 
 API_KEY = os.environ["NEWS_API_ORG_API_KEY"]
 COUNTRY_CODE = "us"
@@ -26,8 +27,21 @@ def save_to_file(data):
         json.dump(data, f, indent=4)
 
 
+def timestamp():
+    # Get the current date and time
+    current_datetime = datetime.datetime.utcnow()
+
+    # Format the datetime as an ISO 8601 string
+    iso_formatted = current_datetime.strftime('%Y-%m-%dT%H:%M:%SZ')
+    
+    return iso_formatted
+
+
 def main():
     data = fetch(URL)
+    if data['status'] == "ok":
+        data['generatedAt'] = timestamp()
+    
     save_to_file(data)
 
 
