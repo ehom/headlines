@@ -33,7 +33,7 @@ def timestamp():
 
     # Format the datetime as an ISO 8601 string
     iso_formatted = current_datetime.strftime('%Y-%m-%dT%H:%M:%SZ')
-    
+
     return iso_formatted
 
 
@@ -41,7 +41,7 @@ def main():
     data = fetch(URL)
     if data['status'] == "ok":
         data['generatedAt'] = timestamp()
-    
+
     save_to_file(data)
 
 
