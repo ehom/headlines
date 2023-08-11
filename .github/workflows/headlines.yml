@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Set environment variables
-        with:
+        env: # Or as an environment variable
           NEWS_API_ORG_API_KEY: ${{ secrets.NEWS_API_ORG_API_KEY }}
 
       - name: Fetch headlines
