@@ -18,7 +18,8 @@ jobs:
         env: # environment variables
           NEWS_API_ORG_API_KEY: ${{ secrets.NEWS_API_ORG_API_KEY }}
         run: |
-          python get_headlines.py
+          python3 get_headlines.py
+          ls headlines.json
 
       - name: Let Github know who you are
         run: |
