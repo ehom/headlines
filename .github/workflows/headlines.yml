@@ -1,8 +1,12 @@
 name: Fetch headlines
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     - cron: '*/5 * * * *'
+
 jobs:
   fetch-headlines:
     runs-on: ubuntu-latest
