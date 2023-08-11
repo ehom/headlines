@@ -20,13 +20,16 @@ jobs:
         run: |
           python get_headlines.py
 
-      - name: Write headlines to file
+      - name: Add file to staging area
         run: |
-          echo "Writing headlines to file" > headlines.json
-          cat headlines.json
+          git add headlines.json
 
-      - name: Check in headlines
-        uses: actions/upload-artifact@v2
-        with:
-          name: headlines.json
-          path: headlines.json
+      - name: Commit changes
+        run: |
+          git commit -m "Generated file"
+
+      - name: Push changes
+        run: |
+          git push
+
+
