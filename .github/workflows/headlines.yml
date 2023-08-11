@@ -2,8 +2,7 @@ name: Fetch headlines
 
 on:
   schedule:
-    - cron: '0 * * * *'
-
+    - cron: '*/5 * * * *'
 jobs:
   fetch-headlines:
     runs-on: ubuntu-latest
@@ -29,3 +28,4 @@ jobs:
         with:
           name: headlines.json
           path: headlines.json
+          branch: data
